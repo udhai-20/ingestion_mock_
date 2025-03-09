@@ -23,13 +23,13 @@ export class AppController {
     return await this.ingestionService.processDocument(documentId);
   }
 
-  @Get(':id/reprocess')
-  @ApiOperation({ summary: 'Reprocess Document', description: 'Reprocesses a document by ID' })
-  @ApiParam({ name: 'id', type: 'string', example: '12345', description: 'Document ID' })
-  @ApiResponse({ status: 200, description: 'Document reprocessed successfully' })
-  async getStatus(@Param('id') documentId: string) {
-    return await this.ingestionService.processDocument(documentId);
-  }
+  // @Get(':id/getStatus')
+  // @ApiOperation({ summary: 'Reprocess Document', description: 'get Status a document by ID' })
+  // @ApiParam({ name: 'id', type: 'string', example: '12345', description: 'Document ID' })
+  // @ApiResponse({ status: 200, description: 'Document reprocessed successfully' })
+  // async getStatus(@Param('id') documentId: string) {
+  //   return await this.ingestionService.getDocumentStatus(documentId);
+  // }
 
   @Get(':id/embeddings')
   @ApiOperation({ summary: 'Get Document Embeddings', description: 'Retrieves embeddings for a document' })

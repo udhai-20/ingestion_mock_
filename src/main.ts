@@ -7,15 +7,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
   const config = new DocumentBuilder()
-  .setTitle('My API')
-  .setDescription('API Documentation for my NestJS app')
-  .setVersion('1.0')
-  .addBearerAuth() // Add JWT Authorization
-  .build();
-
-const document = SwaggerModule.createDocument(app, config);
-SwaggerModule.setup('api', app, document);
-
+    .setTitle('API For Document Ingestion Mock')
+    .setDescription(`This API provides functionalities for:
+    Ingestion(Mock response): once document uploaded ,ingestion(to get mock response,reprocess(once the ingestion get failed ), get embedding (mock data)),
+    service to service authentication with special headers
+    `)
+    .setVersion('1.0')
+    .addCookieAuth()
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
   await app.listen(process.env.PORT ?? 3001);
 }
 bootstrap();

@@ -4,7 +4,7 @@ import axios from 'axios';
 @Injectable()
 export class AppService {
   private documentStatus = new Map<string, string>(); // Stores status in-memory
-  private baseUrl = "https://user-management-5e76.onrender.com/documents"
+  private baseUrl = "http://user-management-5e76.onrender.com/documents"
 
   async processDocument(documentId: string) {
     this.documentStatus.set(documentId, 'processing');
